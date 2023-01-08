@@ -581,7 +581,7 @@ background-color: var(--white-color);
 
 .subscribe-input {
   width: 264px;
-  padding: 7px 16px;
+  padding: 8px 16px;
   margin-right: 24px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
@@ -791,29 +791,36 @@ background-color: var(--white-color);
   margin-bottom: 24px;
 }
 
-.policy-field::before {
-display: block;
-content: "";
+.policy-icon {
+display: flex;
+justify-content: center;
+align-items: center;
 width: 16px;
 height: 16px;
 margin-right: 8px;
 border: 1.25px solid var(--dark-color);
 border-radius: 2px;
 cursor: pointer;
-transition: background-color var(--timing-function), 
-background-image var(--timing-function);
+transition: background-color var(--timing-function),
+border-color var(--timing-function);
 }
 
-.policy-input:checked+.policy-field::before {
+.policy-input:checked + .policy-icon {
   background-color: var(--pressed-state-color);
   border-color: transparent;
-  background-image: url(../images/svg/check.svg);
-  background-position: center;
-  background-size: 10px 8px;
-  background-repeat: no-repeat;
 }
 
-.policy-input:focus+.policy-field::before {
+.policy-icon-check {
+  fill: var(--white-color);
+  opacity: 0;
+  transition: opacity var(--timing-function);
+}
+
+.policy-input:checked+.policy-icon .policy-icon-check {
+  opacity: 1;
+}
+
+.policy-input:focus+.policy-icon {
   border-color: var(--primary-brand-color);
 }
 
